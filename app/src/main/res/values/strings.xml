@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">CM_Ejercicio2</string>
+    <string name="instruction">Add a new car</string>
+    <string name="model">Model</string>
+    <string name="modexa">Ex. Jetta</string>
+    <string name="selectbrand">Select a brand</string>
+    <string name="year">Year</string>
+    <string name="exyear">Ex.2000</string>
+    <string name="selectstatus">Select a status</string>
+    <string name="btnbrand">Brand</string>
+    <string name="btnstat">Status</string>
 </resources>
