@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="Brands">
+
+        <item>Ford</item>
+        <item>VW</item>
+        <item>Chevrolette</item>
+        <item>Audio</item>
+        <item>Pegaut</item>
+        <item>Renault</item>
+        <item>BMW</item>
+
+
+    </string-array>
+
+    <string-array name="Status">
+
+        <item>New</item>
+        <item>semi</item>
+        <item>Used</item>
+
+    </string-array>
+
+</resources>
