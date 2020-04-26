@@ -9,4 +9,8 @@
     <string name="selectstatus">Select a status</string>
     <string name="btnbrand">Brand</string>
     <string name="btnstat">Status</string>
+    <string name="rbtn_1">New</string>
+    <string name="rbtn_2">Semi-new</string>
+    <string name="rbtn_3">Used</string>
+    <string name="checklist">Check List</string>
 </resources>

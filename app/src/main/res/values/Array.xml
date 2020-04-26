@@ -14,12 +14,5 @@
 
     </string-array>
 
-    <string-array name="Status">
-
-        <item>New</item>
-        <item>semi</item>
-        <item>Used</item>
-
-    </string-array>
 
 </resources>

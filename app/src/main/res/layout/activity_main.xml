@@ -47,21 +47,21 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="416dp" />
+        app:layout_constraintGuide_begin="453dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline14"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="496dp" />
+        app:layout_constraintGuide_begin="521dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline15"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="576dp" />
+        app:layout_constraintGuide_begin="588dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline16"
@@ -205,13 +205,55 @@
         app:layout_constraintStart_toStartOf="@+id/guideline19"
         app:layout_constraintTop_toTopOf="@+id/guideline10" />
 
-    <Spinner
-        android:id="@+id/spStatus"
+    <RadioGroup
+        android:id="@+id/radioGroup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@color/White"
         app:layout_constraintBottom_toTopOf="@+id/guideline13"
         app:layout_constraintEnd_toStartOf="@+id/guideline18"
         app:layout_constraintStart_toStartOf="@+id/guideline19"
-        app:layout_constraintTop_toTopOf="@+id/guideline12" />
+        app:layout_constraintTop_toTopOf="@+id/guideline12">
+
+        <RadioButton
+            android:id="@+id/rbtn_new"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:buttonTint="@color/DarkOrchid"
+            android:onClick="checkChoice"
+            android:text="@string/rbtn_1"
+            android:textColor="@color/White"
+            android:textSize="12sp" />
+
+        <RadioButton
+            android:id="@+id/rbtn_semi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:buttonTint="@color/DarkOrchid"
+            android:onClick="checkChoice"
+            android:text="@string/rbtn_2"
+            android:textColor="@color/White"
+            android:textSize="12sp" />
+
+        <RadioButton
+            android:id="@+id/rbtn_used"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:buttonTint="@color/DarkOrchid"
+            android:text="@string/rbtn_3"
+            android:textColor="@color/White"
+            android:textSize="12sp"
+            android:onClick="checkChoice"/>
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/btnCheckList"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button"
+        app:layout_constraintBottom_toTopOf="@+id/guideline15"
+        app:layout_constraintEnd_toStartOf="@+id/guideline18"
+        app:layout_constraintStart_toStartOf="@+id/guideline19"
+        app:layout_constraintTop_toTopOf="@+id/guideline14" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

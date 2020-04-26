@@ -2,6 +2,7 @@ package com.example.cm_ejercicio2;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -9,18 +10,34 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
 
     TextView tvTitle,tvModel,tvBrand,tvYear,tvStatus;
     EditText etModel,etYear;
-    Spinner spBrand,spStatus;
+    Spinner spBrand;
+    RadioGroup radioGroup;
+    RadioButton rbtnStatus;
     ImageButton ibtnAdd;
 
+    Button btnCheckList;
+
     String brand;
+    String status_choice;
+    String ID;
+
+    int i=0;
+
+    Autos auto;
+
+    ArrayList<Autos> autos = new ArrayList<Autos>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,9 +54,12 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         etYear=findViewById(R.id.etYear);
 
         spBrand=findViewById(R.id.spBrand);
-        spStatus=findViewById(R.id.spStatus);
+
+        radioGroup=findViewById(R.id.radioGroup);
 
         ibtnAdd=findViewById(R.id.ibtnAdd);
+
+        btnCheckList=findViewById(R.id.btnCheckList);
 
 
         tvTitle.setText(getResources().getString(R.string.instruction));
@@ -54,8 +74,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,R.array.Brands,android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spBrand.setAdapter(adapter);
-        ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(this,R.array.Status,android.R.layout.simple_spinner_item);
-        spStatus.setAdapter(adapter2);
+
 
         ibtnAdd.setImageResource(R.drawable.add);
 
@@ -63,17 +82,35 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         ibtnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                try {
-                    Toast.makeText(MainActivity.this,brand,Toast.LENGTH_SHORT).show();
+                String year = etYear.getText().toString();
+                String ID ="0";
+                if(Validate(year,ID)){
+                    i++;
+                    ID=Integer.toString(i);
+                    auto.setID(ID);
+                    autos.add(auto);
+                    Intent intento = new Intent(MainActivity.this,Main2Activity.class);
+                    Bundle bundle = new Bundle();
+                    bundle.putSerializable("autos",autos);
+                    intento.putExtras(bundle);
+
+                    Toast.makeText(MainActivity.this,"info correct",Toast.LENGTH_SHORT).show();
+
+                    startActivity(intento);
                 }
-                catch(Exception e)
-                {
-                    Toast.makeText(MainActivity.this,"error",Toast.LENGTH_SHORT).show();
+                else {
+                    Toast.makeText(MainActivity.this,"Error",Toast.LENGTH_SHORT).show();
                 }
+
             }
         });
 
-
+        btnCheckList.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //New activity
+            }
+        });
     }
 
     @Override
@@ -81,10 +118,40 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
         brand = parent.getItemAtPosition(position).toString();
 
+        Toast.makeText(this,brand,Toast.LENGTH_SHORT).show();
+
+    }
+
+    public void checkChoice(View v){
+        int radioId = radioGroup.getCheckedRadioButtonId();
+
+        rbtnStatus = findViewById(radioId);
+
+        status_choice=rbtnStatus.getText().toString();
+
+        Toast.makeText(this,rbtnStatus.getText(),Toast.LENGTH_SHORT).show();
+
+
     }
 
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
 
+    }
+
+    private boolean Validate(String year,String ID){
+        if (etModel.getText().length()==0 || etYear.getText().length()==0){
+            return false;
+        }
+        else{
+            try {
+                int y = Integer.parseInt(year);
+                auto = new Autos(ID,tvModel.getText().toString(),brand,status_choice,y,this);
+
+            }catch (Exception e){
+                return false;
+            }
+            return true;
+        }
     }
 }
