@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -89,14 +90,11 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                     ID=Integer.toString(i);
                     auto.setID(ID);
                     autos.add(auto);
-                    Intent intento = new Intent(MainActivity.this,Main2Activity.class);
-                    Bundle bundle = new Bundle();
-                    bundle.putSerializable("autos",autos);
-                    intento.putExtras(bundle);
+
 
                     Toast.makeText(MainActivity.this,"info correct",Toast.LENGTH_SHORT).show();
 
-                    startActivity(intento);
+
                 }
                 else {
                     Toast.makeText(MainActivity.this,"Error",Toast.LENGTH_SHORT).show();
@@ -109,6 +107,12 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             @Override
             public void onClick(View v) {
                 //New activity
+                Intent intent = new Intent(MainActivity.this,Main2Activity.class);
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("Autos",autos);
+                intent.putExtras(bundle);
+
+                startActivity(intent);
             }
         });
     }
@@ -146,7 +150,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         else{
             try {
                 int y = Integer.parseInt(year);
-                auto = new Autos(ID,tvModel.getText().toString(),brand,status_choice,y,this);
+                auto = new Autos(ID,tvModel.getText().toString(),brand,status_choice,y);
 
             }catch (Exception e){
                 return false;

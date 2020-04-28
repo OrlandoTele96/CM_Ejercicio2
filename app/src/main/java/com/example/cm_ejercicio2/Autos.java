@@ -7,15 +7,14 @@ import java.io.Serializable;
 public class Autos implements Serializable {
     String ID, model,brand,status;
     int year;
-    Context context;
+    //Context context;
 
-    public Autos(String ID, String model, String brand, String status, int year, Context context) {
+    public Autos(String ID, String model, String brand, String status, int year) {
         this.ID = ID;
         this.model = model;
         this.brand = brand;
         this.status = status;
         this.year = year;
-        this.context = context;
     }
 
     public String getID() {
@@ -58,11 +57,4 @@ public class Autos implements Serializable {
         this.year = year;
     }
 
-    public Context getContext() {
-        return context;
-    }
-
-    public void setContext(Context context) {
-        this.context = context;
-    }
 }
