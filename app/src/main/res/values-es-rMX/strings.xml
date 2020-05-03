@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">CM_Ejercicio2</string>
+    <string name="instruction">Añade un nuevo coche</string>
+    <string name="model">Modelo</string>
+    <string name="modexa">Ej. Jetta</string>
+    <string name="selectbrand">Marca</string>
+    <string name="year">Año</string>
+    <string name="exyear">Ej.2000</string>
+    <string name="selectstatus">Estado</string>
+    <string name="btnbrand">Marca</string>
+    <string name="btnstat">Estado</string>
+    <string name="rbtn_1">Nuevo</string>
+    <string name="rbtn_2">Semi-nuevo</string>
+    <string name="rbtn_3">Usado</string>
+    <string name="checklist">Revisar lista</string>
+    <string name="addcar">Carro añadido</string>
+    <string name="erroryear">Error : Este año no está disponible</string>
+    <string name="Error">Error : Este carro no pudo ser añadido, llene correctamente cada campo</string>
+    <string name="Error2">Error : No tiene elementos agregados por checar</string>
+    <string name="ma_succes">Lista de carros fue exitosa</string>
+    <string name="ma_item">Elemento añadido</string>
+    <string name="ma_error">No fue posible checar la lista</string>
+    <string name="ma_brand">"La marca de este elemento es : "</string>
+</resources>
