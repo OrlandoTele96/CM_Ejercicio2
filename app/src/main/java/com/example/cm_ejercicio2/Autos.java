@@ -9,6 +9,7 @@ public class Autos implements Serializable {
     int year;
     //Context context;
 
+
     public Autos(String ID, String model, String brand, String status, int year) {
         this.ID = ID;
         this.model = model;

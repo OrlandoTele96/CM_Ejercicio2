@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     String status_choice;
     String ID;
 
-    int i=0;
+    int i=4543554;
 
     Autos auto;
 
@@ -90,31 +90,41 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                     ID=Integer.toString(i);
                     auto.setID(ID);
                     autos.add(auto);
-
-
-                    Toast.makeText(MainActivity.this,"info correct",Toast.LENGTH_SHORT).show();
-
+                    Toast.makeText(MainActivity.this,getResources().getString(R.string.addcar),Toast.LENGTH_SHORT).show();
+                    Log.d(getResources().getString(R.string.ma),getResources().getString(R.string.ma_item));
 
                 }
                 else {
-                    Toast.makeText(MainActivity.this,"Error",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this,getResources().getString(R.string.Error),Toast.LENGTH_SHORT).show();
+
                 }
+
 
             }
         });
+
+        btnCheckList.setText(getResources().getString(R.string.checklist));
 
         btnCheckList.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //New activity
-                Intent intent = new Intent(MainActivity.this,Main2Activity.class);
-                Bundle bundle = new Bundle();
-                bundle.putSerializable("Autos",autos);
-                intent.putExtras(bundle);
+                if (autos.size()==0){
+                    Toast.makeText(MainActivity.this,getResources().getString(R.string.Error2),Toast.LENGTH_SHORT).show();
+                    Log.d(getResources().getString(R.string.ma),getResources().getString(R.string.ma_error));
+                }
+                else {
+                    //New activity
+                    Intent intent = new Intent(MainActivity.this, Main2Activity.class);
+                    Bundle bundle = new Bundle();
+                    bundle.putSerializable(getResources().getString(R.string.autos), autos);
+                    intent.putExtras(bundle);
 
-                startActivity(intent);
+                    startActivity(intent);
+                }
             }
         });
+
+
     }
 
     @Override
@@ -145,17 +155,26 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     private boolean Validate(String year,String ID){
         if (etModel.getText().length()==0 || etYear.getText().length()==0){
+
             return false;
         }
         else{
             try {
                 int y = Integer.parseInt(year);
-                auto = new Autos(ID,tvModel.getText().toString(),brand,status_choice,y);
+                auto = new Autos(ID,etModel.getText().toString(),brand,status_choice,y);
 
             }catch (Exception e){
+
                 return false;
             }
-            return true;
+            if(auto.getYear()<=2020 && auto.getYear()>=1960)
+            {
+                return true;
+            }
+            else {
+                Toast.makeText(MainActivity.this,getResources().getString(R.string.erroryear),Toast.LENGTH_SHORT).show();
+                return false;
+            }
         }
     }
 }

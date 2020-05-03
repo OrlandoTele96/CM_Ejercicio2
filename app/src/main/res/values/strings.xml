@@ -13,4 +13,25 @@
     <string name="rbtn_2">Semi-new</string>
     <string name="rbtn_3">Used</string>
     <string name="checklist">Check List</string>
+
+    <string name="ford">Ford</string>
+    <string name="vw">Volkswagen</string>
+    <string name="chevrolet">Chevrolet</string>
+    <string name="audi">Audi</string>
+    <string name="peugeot">Peugeot</string>
+    <string name="kia">Kia</string>
+    <string name="bmw">BMW</string>
+
+    <string name="addcar">Car added</string>
+    <string name="erroryear">Error : this year is not available</string>
+    <string name="Error">Error : this car was not added, fill correctly each field</string>
+    <string name="Error2">Error : You have not items to check</string>
+
+    <string name="ma">MainActivity</string>
+    <string name="ma_succes">List of cars was successful</string>
+    <string name="ma_item">Item added</string>
+    <string name="ma_error">It was not possible to check list</string>
+    <string name="ma_brand">Brand of this item is : </string>
+
+    <string name="autos">autos</string>
 </resources>

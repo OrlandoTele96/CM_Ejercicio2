@@ -4,11 +4,11 @@
     <string-array name="Brands">
 
         <item>Ford</item>
-        <item>VW</item>
-        <item>Chevrolette</item>
-        <item>Audio</item>
-        <item>Pegaut</item>
-        <item>Renault</item>
+        <item>Volkswagen</item>
+        <item>Chevrolet</item>
+        <item>Audi</item>
+        <item>Peugeot</item>
+        <item>Kia</item>
         <item>BMW</item>
 
 
